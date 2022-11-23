@@ -1,24 +1,20 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-generator client {
-  provider = "prisma-client-js"
-  url      = env("DATABASE_URL")
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 model User {
-  id        String   @id @default(uuid()) // this is id, default created
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  email     String   @unique
-  image     String? // optional
+  updatedAt DateTime @updatedAt
+  email     String?  @unique
+  image     String?
   role      Role     @default(USER)
-  bookmarks Link[] // defining many to many
+  bookmarks Link[]
 }
 
 enum Role {
@@ -27,10 +23,13 @@ enum Role {
 }
 
 model Link {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  email     String   @unique
-  image     String?
-  users     User[]
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  title       String
+  description String
+  url         String
+  imageUrl    String
+  category    String
+  users       User[]
 }
