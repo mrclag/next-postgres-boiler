@@ -96,7 +96,9 @@ export const Response = objectType({
 //   }
 // });
 
-
+// This type of pagination is good if there are not a whole lot of records
+// and you want to do pagination, but it will have to go through all
+// of the records each time it wants to paginate (very slow)
 // export const LinksQuery = extendType({
 //   type: 'Query',
 //   definition(t) {
