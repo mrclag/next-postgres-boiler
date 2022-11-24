@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE=\"dataproxy\" prisma generate",
-    "vercel-build": "PRISMA_CLIENT_ENGINE_TYPE=\"dataproxy\" prisma generate && next build"
+    "vercel-build": "PRISMA_CLIENT_ENGINE_TYPE=\"dataproxy\" prisma generate --data-proxy && next build"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
