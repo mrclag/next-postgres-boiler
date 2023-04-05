@@ -1,1 +1,1 @@
-Boilerplate for nextjs project with postgres backend
+Boilerplate for project using Typescript, Nextjs, GraphQL, Postgres
